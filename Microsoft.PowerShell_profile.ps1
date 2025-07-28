@@ -9,34 +9,6 @@ Function gac { git add -A; git status; git commit -m @args }
 Function gca { git commit --amend --no-edit }
 Function gpo { git push -u origin HEAD }
 
-function gfa { git fetch --all }
-
-function grman { git rebase -i main }
-function grmas { git rebase -i master }
-function grdev { git rebase -i develop }
-
-function gitc { git commit -m @args }
-function pushmas { git push origin master }
-function pushman { git push origin main }
-function pushdev { git push origin develop }
-
-function pullman { git pull origin main }
-function pullmas { git pull origin main }
-function pulldev { git pull origin develop }
-
-function pull { git pull origin master }
-function gl { git log }
-function glo { git log --oneline }
-function gch { git checkout @args }
-function gcn { git checkout -b @args }
-
-function gman { git checkout main }
-function gmas { git checkout master }
-function gdev { git checkout develop }
-
-function gb { git branch @args }
-function gd { git diff }
-
 Function gl {
   git log --graph --pretty=format:"`%Cred`%h`%Creset -`%C(yellow)`%d`%Creset `%s `%Cgreen(`%cr`) `%C(bold blue)<`%an>`%Creset" --abbrev-commit
 }
@@ -118,6 +90,22 @@ Function pr {
     open $url
   }
 }
+
+function gch { git checkout @args }
+function gchb { git checkout -b @args }
+
+function gfa { git fetch --all }
+
+function greb { git rebase -i @args }
+
+function gpush { git push origin @args }
+function gpull { git pull origin @args }
+
+function gl { git log }
+function glo { git log --oneline }
+
+function gb { git branch @args }
+function gd { git diff }
 
 # --- Docker aliases ---
 Function dkill {
