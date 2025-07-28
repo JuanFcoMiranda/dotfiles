@@ -35,7 +35,6 @@ function gmas { git checkout master }
 function gdev { git checkout develop }
 
 function gb { git branch @args }
-function gs { git status }
 function gd { git diff }
 
 Function gl {
@@ -54,9 +53,21 @@ Function gpr {
   git --no-pager log -15 --graph --pretty=format:"`%Cred`%h`%Creset -`%C(yellow)`%d`%Creset `%s `%Cgreen(`%cr`) `%C(bold blue)[`%an]`%Creset" --abbrev-commit
 }
 
+Function gdelbr {
+    $main_branch = gdefault
+    gco $main_branch
+
+    # Get all branches but default
+    $branches = git branch --format="%(refname:short)" | Where-Object { $_ -ne $main_branch }
+
+    foreach ($branch in $branches) {
+        git branch -D $branch
+    }
+}
+
 Function gcopm {
   $main_branch = gdefault
-  git checkout $main_branch
+  gco $main_branch
   gpr
 }
 
@@ -66,9 +77,9 @@ Function gnewbr {
 }
 
 Function gstnewbr {
-  git stash -u
+  gsu
   gnewbr @args
-  git stash pop
+  gsp
 }
 
 Function gcpp {
