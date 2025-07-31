@@ -106,14 +106,13 @@ alias gas="git add -A && git status"
 alias gs="git status"
 alias grh="git reset HEAD~"
 alias grhh="git reset HEAD --hard"
-alias gc="git commit -m"
+alias gc="git commit -S -m"
 alias gco="git checkout"
 alias gnewbr="gcopm && git checkout -b"
 alias gpr="git pull -r && git --no-pager log -15 --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit"
 alias gpo="git push -u origin HEAD"
-alias gac="gas && git commit -m"
-alias gca="git commit --amend --no-edit"
 alias gac="gas && gc"
+alias gca="git commit -S --amend --no-edit"
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gsu="git stash -u"
 alias gsp="git stash pop"
@@ -132,7 +131,7 @@ function gcopm() {
 
 # stash, checkout and pull master, create a new branch and then pop stash.  useful for when you were running on master, made changes, and forgot to create a branch first
 function gstnewbr() {
-    git stash -u && gnewbr "$1" && gsp
+    gsu && gnewbr "$1" && gsp
 }
 
 # add, status, commit, pull and rebase, and push.  useful for trunk based dev, albeit you should probs be running verify before pushing
