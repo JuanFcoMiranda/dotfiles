@@ -3,10 +3,10 @@ Function gs { git status }
 Function gas { git add -A; git status }
 Function grh { git reset HEAD~ }
 Function grhh { git reset HEAD --hard }
-Function gcom { git commit -m @args }
+Function gcom { git commit -S -m @args }
 Function gco  { git checkout }
 Function gac { git add -A; git status; git commit -m @args }
-Function gca { git commit --amend --no-edit }
+Function gca { git commit -S --amend --no-edit }
 Function gpo { git push -u origin HEAD }
 
 Function gl {
