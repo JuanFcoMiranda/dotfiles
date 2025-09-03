@@ -57,7 +57,7 @@
           ],
           "style": "diamond",
           "powerline_symbol": "\ue0b4",
-          "template": " {{ .UpstreamIcon }}{{ .HEAD }} ",
+          "template": " {{ .UpstreamIcon }} {{ .HEAD }} ",
           "type": "git"
         },
         {
